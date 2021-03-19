@@ -23,3 +23,4 @@ exports.run = async (message, args) => {
 exports.category = 4;
 exports.help = "Generates a retro text image (separate lines with a comma)";
 exports.params = "[top text], {middle text}, {bottom text}";
+exports.requires = "proxy";
