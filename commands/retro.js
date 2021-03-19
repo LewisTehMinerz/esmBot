@@ -8,11 +8,11 @@ exports.run = async (message, args) => {
   if (/^[\w ]+$/i.test(line1) === false || /^[\w ]+$/i.test(line2) === false || /^[\w ]+$/i.test(line3) === false) return `${message.author.mention}, only alphanumeric characters, spaces, and underscores are allowed!`;
   let text;
   if (line3) {
-    text = new RetroText.default().setLine1(line1).setLine2(line2).setLine3(line3).setBackgroundStyle(BackgroundStyle.OUTLINE_TRIANGLE).setTextStyle(TextStyle.CHROME);
+    text = new RetroText().setLine1(line1).setLine2(line2).setLine3(line3).setBackgroundStyle(BackgroundStyle.OUTLINE_TRIANGLE).setTextStyle(TextStyle.CHROME);
   } else if (line2) {
-    text = new RetroText.default().setLine1(line1).setLine2(line2).setBackgroundStyle(BackgroundStyle.OUTLINE_TRIANGLE).setTextStyle(TextStyle.CHROME);
+    text = new RetroText().setLine1(line1).setLine2(line2).setBackgroundStyle(BackgroundStyle.OUTLINE_TRIANGLE).setTextStyle(TextStyle.CHROME);
   } else {
-    text = new RetroText.default().setLine2(line1).setBackgroundStyle(BackgroundStyle.OUTLINE_TRIANGLE).setTextStyle(TextStyle.CHROME);
+    text = new RetroText().setLine2(line1).setBackgroundStyle(BackgroundStyle.OUTLINE_TRIANGLE).setTextStyle(TextStyle.CHROME);
   }
   const buffer = await text.fetchBuffer();
   return {
