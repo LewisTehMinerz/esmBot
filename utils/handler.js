@@ -7,6 +7,7 @@ exports.load = async (command, soundStatus) => {
   if (props.requires === "google" && process.env.GOOGLE === "") return logger.log("info", `Google info not provided in config, skipped loading command ${command}...`);
   if (props.requires === "cat" && process.env.CAT === "") return logger.log("info", `Cat API info not provided in config, skipped loading command ${command}...`);
   if (props.requires === "mashape" && process.env.MASHAPE === "") return logger.log("info", `Mashape/RapidAPI info not provided in config, skipped loading command ${command}...`);
+  if (props.requires === "proxy" && require("../servers.json").proxy.length < 1) return logger.log("info", `HTTPS proxies not provided in servers, skipped loading command ${command}...`);
   if (props.requires === "sound" && soundStatus) return logger.log("info", `Failed to connect to some Lavalink nodes, skipped loading command ${command}...`);
   collections.commands.set(command.split(".")[0], props.run);
   collections.info.set(command.split(".")[0], {
